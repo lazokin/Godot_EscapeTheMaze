@@ -1,4 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Character/Character.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -90,6 +92,8 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
+script = ExtResource( 1 )
+speed = 3
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
@@ -120,14 +124,14 @@ collision_mask = 1
 
 enabled = true
 exclude_parent = true
-cast_to = Vector2( 0, 64 )
+cast_to = Vector2( 0, -64 )
 collision_mask = 1
 
 [node name="RayCastDown" type="RayCast2D" parent="." index="5"]
 
 enabled = true
 exclude_parent = true
-cast_to = Vector2( 0, -64 )
+cast_to = Vector2( 0, 64 )
 collision_mask = 1
 
 [node name="MoveTween" type="Tween" parent="." index="6"]
@@ -152,5 +156,7 @@ anims/right = SubResource( 4 )
 anims/up = SubResource( 5 )
 blend_times = [  ]
 _sections_unfolded = [ "Pause", "Playback Options" ]
+
+[connection signal="tween_completed" from="MoveTween" to="." method="_on_MoveTween_tween_completed"]
 
 

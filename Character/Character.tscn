@@ -102,7 +102,35 @@ _sections_unfolded = [ "Animation" ]
 
 shape = SubResource( 1 )
 
-[node name="MoveTween" type="Tween" parent="." index="2"]
+[node name="RayCastRight" type="RayCast2D" parent="." index="2"]
+
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 64, 0 )
+collision_mask = 1
+
+[node name="RayCastLeft" type="RayCast2D" parent="." index="3"]
+
+enabled = true
+exclude_parent = true
+cast_to = Vector2( -64, 0 )
+collision_mask = 1
+
+[node name="RayCastUp" type="RayCast2D" parent="." index="4"]
+
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 0, 64 )
+collision_mask = 1
+
+[node name="RayCastDown" type="RayCast2D" parent="." index="5"]
+
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 0, -64 )
+collision_mask = 1
+
+[node name="MoveTween" type="Tween" parent="." index="6"]
 
 repeat = false
 playback_process_mode = 1
@@ -111,7 +139,7 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
 
 root_node = NodePath("..")
 autoplay = ""

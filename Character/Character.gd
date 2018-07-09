@@ -19,7 +19,7 @@ onready var raycasts = {
 }
 
 func move(dir):
-	$AnimationPlayer.playback_speed = speed
+	$AnimationPlayer.set_speed_scale(speed)
 	facing = dir
 	if raycasts[facing].is_colliding():
 		return
